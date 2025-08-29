@@ -30,6 +30,12 @@ let coin=document.getElementById("coin");
     let calls=document.getElementsByClassName("call");
     let ser=document.getElementsByClassName("service");
     let num=document.getElementsByClassName("num");
+let hist=document.getElementById("history");
+let number_name=document.getElementsByClassName("number");
+
+    
+
+
     for(let i=0;i<calls.length;i++)
     {
         calls[i].addEventListener("click",function()
@@ -44,14 +50,69 @@ let coin=document.getElementById("coin");
             else
             {
                  let service_nam=ser[i-1].innerText;
+                 let number_nam=number_name[i-1].innerText;
         let numb=num[i-1].innerText;
         window.alert(service_nam+"\n\n"+numb);
                coin_txt=coin_txt-20;
                coin.innerText=coin_txt;
+
+
+               let new_his=document.createElement("div");
+               new_his.classList.add("flex","justify-between","items-center","mb-[8px]","bg-gray-100","p-[16px]","rounded-[8px]");
+               let ser_num=document.createElement("div");
+
+               let new_ser=document.createElement("h2");
+               new_ser.classList.add("font-semibold", "text-[18px]");
+               new_ser.innerText=number_nam;
+
+               let new_num=document.createElement("p");
+               new_num.classList.add("text-[16px]");
+               new_num.innerText=numb;
+              
+                ser_num.appendChild(new_ser);
+                ser_num.appendChild(new_num);
+                new_his.appendChild(ser_num);
+                let time=document.createElement("p");
+                let now=new Date();
+let currentTime=now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+                time.innerText=currentTime;
+                new_his.appendChild(time);
+              
+               hist.appendChild(new_his);
+
+              
+
+
             }
         
     });
     }
 
+
+    let clr=document.getElementById("clear");
+    clr.addEventListener("click",function()
+{
+    hist.innerHTML="";
+});
+
     
-    
+let cpy=document.getElementsByClassName("cpy");
+let c_count=document.getElementsByTagName("span");
+
+for(let i=0;i<cpy.length;i++)
+{
+    cpy[i].addEventListener("click",function()
+{
+    window.alert("Copied");
+    let c=parseInt(c_count[0].innerText);
+    c+=1;
+    c_count[0].innerText=c;
+
+
+    let numb=num[i].innerText;
+    navigator.clipboard.writeText(numb);
+})
+}
+
+
