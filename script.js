@@ -79,7 +79,7 @@ let currentTime=now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-di
                 time.innerText=currentTime;
                 new_his.appendChild(time);
               
-               hist.appendChild(new_his);
+               hist.prepend(new_his);
 
               
 
