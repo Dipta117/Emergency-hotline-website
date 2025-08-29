@@ -32,7 +32,7 @@ let coin=document.getElementById("coin");
     let num=document.getElementsByClassName("num");
 let hist=document.getElementById("history");
 let number_name=document.getElementsByClassName("number");
-
+let img=document.getElementsByClassName("icn");
     
 
 
@@ -49,10 +49,15 @@ let number_name=document.getElementsByClassName("number");
             }
             else
             {
+
                  let service_nam=ser[i].innerText;
                  let number_nam=number_name[i].innerText;
-        let numb=num[i].innerText;
-        window.alert(service_nam+"\n\n"+numb);
+                let numb=num[i].innerText;
+                let pic=img[i].getAttribute("src");
+
+
+
+        window.alert("\n\n"+number_nam+"\n"+service_nam+"\n"+numb);
                coin_txt=coin_txt-20;
                coin.innerText=coin_txt;
 
@@ -62,17 +67,23 @@ let number_name=document.getElementsByClassName("number");
                let ser_num=document.createElement("div");
 
                let new_ser=document.createElement("h2");
-               new_ser.classList.add("font-semibold", "text-[18px]");
+               new_ser.classList.add("font-semibold", "font-inter", "text-[18px]");
                new_ser.innerText=number_nam;
 
                let new_num=document.createElement("p");
-               new_num.classList.add("text-[16px]");
+               new_num.classList.add("text-[16px]","font-hind");
                new_num.innerText=numb;
-              
+
+               let new_img=document.createElement("img");
+              new_img.classList.add("w-6","h-6");
+               new_img.src=pic;
+
+                ser_num.appendChild(new_img);
                 ser_num.appendChild(new_ser);
                 ser_num.appendChild(new_num);
                 new_his.appendChild(ser_num);
                 let time=document.createElement("p");
+                time.classList.add("font-hind");
                 let now=new Date();
 let currentTime=now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
@@ -104,7 +115,7 @@ for(let i=0;i<cpy.length;i++)
 {
     cpy[i].addEventListener("click",function()
 {
-    window.alert("Copied");
+    
     let c=parseInt(c_count[0].innerText);
     c+=1;
     c_count[0].innerText=c;
@@ -112,6 +123,7 @@ for(let i=0;i<cpy.length;i++)
 
     let numb=num[i].innerText;
     navigator.clipboard.writeText(numb);
+    window.alert("Copied"+ " "+ numb );
 });
 }
 
