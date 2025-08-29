@@ -49,9 +49,9 @@ let number_name=document.getElementsByClassName("number");
             }
             else
             {
-                 let service_nam=ser[i-1].innerText;
-                 let number_nam=number_name[i-1].innerText;
-        let numb=num[i-1].innerText;
+                 let service_nam=ser[i].innerText;
+                 let number_nam=number_name[i].innerText;
+        let numb=num[i].innerText;
         window.alert(service_nam+"\n\n"+numb);
                coin_txt=coin_txt-20;
                coin.innerText=coin_txt;
@@ -112,7 +112,44 @@ for(let i=0;i<cpy.length;i++)
 
     let numb=num[i].innerText;
     navigator.clipboard.writeText(numb);
-})
+});
 }
 
 
+
+
+let btn=document.getElementById("mobile_btn");
+let hid=document.getElementsByClassName("hide");
+btn.addEventListener("click",function()
+{
+    
+    
+
+    if(btn.innerText==="Call History")
+    {
+       btn.innerText="Exit History";
+        for(let i=0;i<hid.length;i++)
+     {
+         hid[i].classList.add("hidden");
+     }
+    let call_his=document.getElementById("call-history");
+    call_his.classList.remove("hidden");
+    call_his.classList.add("w-full");
+    }
+
+    else
+    {
+         btn.innerText="Call History";
+        for(let i=0;i<hid.length;i++)
+     {
+         hid[i].classList.remove("hidden");
+     }
+    let call_his=document.getElementById("call-history");
+    call_his.classList.add("hidden");
+   
+
+    }
+
+    
+
+});
