@@ -122,8 +122,9 @@ for(let i=0;i<cpy.length;i++)
 
 
     let numb=num[i].innerText;
-    navigator.clipboard.writeText(numb);
     window.alert("Copied"+ " "+ numb );
+    navigator.clipboard.writeText(numb);
+    
 });
 }
 
