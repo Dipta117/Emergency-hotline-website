@@ -24,4 +24,34 @@ let fav=document.getElementById("fav");
     })
     }
 
+
+let coin=document.getElementById("coin");
+
+    let calls=document.getElementsByClassName("call");
+    let ser=document.getElementsByClassName("service");
+    let num=document.getElementsByClassName("num");
+    for(let i=0;i<calls.length;i++)
+    {
+        calls[i].addEventListener("click",function()
+    {
+       
+            let coin_txt=parseInt(coin.innerText);
+            if(coin_txt<20)
+            {
+                window.alert("Insufficient Coin to Make a Call");
+                return;
+            }
+            else
+            {
+                 let service_nam=ser[i-1].innerText;
+        let numb=num[i-1].innerText;
+        window.alert(service_nam+"\n\n"+numb);
+               coin_txt=coin_txt-20;
+               coin.innerText=coin_txt;
+            }
+        
+    });
+    }
+
+    
     
